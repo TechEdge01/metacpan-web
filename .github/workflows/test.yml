@@ -2,35 +2,36 @@
 name: test
 
 on:
-  - push
+    - push
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    name: Test distribution
-    strategy:
-      matrix:
-        perl-version:
-          - "5.22"
-    container:
-      image: perl:${{ matrix.perl-version }}
-      env:
-        DEPLOYMENT_PERL_VERSION: 5.22
-        DEVEL_COVER_OPTIONS: "-ignore,^local/"
-        CPAN_RESOLVER: snapshot
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '13.2'
-      - name: Install Carton
-        run: curl -sL https://git.io/cpm | perl - install -g Carton --show-build-log-on-failure
-      - name: Install deps
-        run: curl -sL https://git.io/cpm | perl - install --cpanfile cpanfile --show-build-log-on-failure
-        if: success()
-      - name: Install node deps
-        run: npm install -g less js-beautify
-        if: success()
-      - name: Run Tests
-        run: carton exec prove -lvr --jobs 2 t
-        if: success()
+    test:
+        runs-on: ubuntu-latest
+        name: Test distribution
+        strategy:
+            matrix:
+                perl-version:
+                    - "5.22"
+        container:
+            image: perl:${{ matrix.perl-version }}
+            env:
+                DEPLOYMENT_PERL_VERSION: 5.22
+                DEVEL_COVER_OPTIONS: "-ignore,^local/"
+                CPAN_RESOLVER: snapshot
+        steps:
+            - uses: actions/checkout@v1
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "13.2"
+            - run: yarn install
+            - name: Install Carton
+              run: curl -sL https://git.io/cpm | perl - install -g Carton --show-build-log-on-failure
+            - name: Install deps
+              run: curl -sL https://git.io/cpm | perl - install --cpanfile cpanfile --show-build-log-on-failure
+              if: success()
+            - name: Install node deps
+              run: npm install -g less js-beautify
+              if: success()
+            - name: Run Tests
+              run: carton exec prove -lvr --jobs 2 t
+              if: success()
