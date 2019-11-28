@@ -20,6 +20,9 @@ jobs:
         CPAN_RESOLVER: snapshot
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.2'
       - name: Install Carton
         run: curl -sL https://git.io/cpm | perl - install -g Carton --show-build-log-on-failure
       - name: Install deps
