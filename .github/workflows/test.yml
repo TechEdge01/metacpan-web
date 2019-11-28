@@ -23,14 +23,11 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: "12"
-            - run: npm install yarn && yarn install
+            - run: npm install -g yarn && yarn install
             - name: Install Carton
               run: curl -sL https://git.io/cpm | perl - install -g Carton --show-build-log-on-failure
             - name: Install deps
               run: curl -sL https://git.io/cpm | perl - install --cpanfile cpanfile --show-build-log-on-failure
-              if: success()
-            - name: Install node deps
-              run: npm install -g less js-beautify
               if: success()
             - name: Run Tests
               run: carton exec prove -lvr --jobs 2 t
