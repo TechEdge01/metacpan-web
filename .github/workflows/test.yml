@@ -30,5 +30,5 @@ jobs:
               run: curl -sL https://git.io/cpm | perl - install --cpanfile cpanfile --show-build-log-on-failure
               if: success()
             - name: Run Tests
-              run: carton exec prove -lvr --jobs 2 t
+              run: carton exec prove -lr --jobs 2 t
               if: success()
