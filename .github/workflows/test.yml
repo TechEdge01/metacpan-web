@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Carton
-        run: curl -sL https://git.io/cpm | perl - install Carton --show-build-log-on-failure
+        run: curl -sL https://git.io/cpm | perl - install -g Carton --show-build-log-on-failure
       - name: Install deps
         run: curl -sL https://git.io/cpm | perl - install --cpanfile cpanfile --show-build-log-on-failure
       - name: Run Tests
