@@ -16,9 +16,9 @@ jobs:
     container:
       image: perl:${{ matrix.perl-version }}
       env:
-        - DEPLOYMENT_PERL_VERSION=5.22
-        - DEVEL_COVER_OPTIONS="-ignore,^local/"
-        - CPAN_RESOLVER=snapshot
+        DEPLOYMENT_PERL_VERSION: 5.22
+        DEVEL_COVER_OPTIONS: "-ignore,^local/"
+        CPAN_RESOLVER: snapshot
     steps:
       - name: Install deps
         run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
