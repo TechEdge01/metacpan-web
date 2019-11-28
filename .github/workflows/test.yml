@@ -8,7 +8,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Test distribution
-    needs: build
     strategy:
       matrix:
         perl-version:
