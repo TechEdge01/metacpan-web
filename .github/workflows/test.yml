@@ -20,7 +20,9 @@ jobs:
         CPAN_RESOLVER: snapshot
     steps:
       - name: Install deps
-        run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
+        run: curl -sL https://git.io/cpm | perl - install --show-build-log-on-failure
+      - name: Install Carton
+        run: curl -sL https://git.io/cpm | perl - install Carton --show-build-log-on-failure
       - name: Run Tests
         if: success()
-        run: prove -lvr --jobs 2 t
+        run: carton exec prove -lvr --jobs 2 t
