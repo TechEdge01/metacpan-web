@@ -7,7 +7,7 @@ on:
 jobs:
     test:
         runs-on: ubuntu-latest
-        name: Test distribution
+        name: Test Dockerless Install
         strategy:
             matrix:
                 perl-version:
