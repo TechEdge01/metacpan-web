@@ -38,8 +38,12 @@ jobs:
                   curl -sL https://git.io/cpm | perl -
                   install
                   --cpanfile cpanfile
-                  -r ${{ matrix.resolver }}
+                  --resolver ${{ matrix.resolver }}
                   --show-build-log-on-failure
+                  --local-lib-contained=local
+              if: success()
+            - name: Maybe update cpanfile.snapshot
+              run: carton
               if: success()
             - name: Run Tests
               run: carton exec prove -lr --jobs 2 t
