@@ -54,7 +54,8 @@ my $tempdir = "$root_dir/var/tmp";
 
 STDERR->autoflush;
 
-if ( !$dev_mode ) {
+# rmtree causes warnings when tests are running
+if ( !$dev_mode && !$ENV{HARNESS_ACTIVE} ) {
     my $view = MetaCPAN::Web->view('HTML');
 
     if ( my $tmpl_cache = $view->config->{COMPILE_DIR} ) {

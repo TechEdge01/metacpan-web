@@ -22,7 +22,6 @@ jobs:
                 CPAN_RESOLVER: snapshot
                 DEPLOYMENT_PERL_VERSION: 5.22
                 DEVEL_COVER_OPTIONS: "-ignore,^local/"
-                PLACK_ENV: development
         steps:
             - uses: actions/checkout@v1
             - uses: actions/setup-node@v1
