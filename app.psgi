@@ -90,7 +90,7 @@ if ( !$dev_mode && !$ENV{HARNESS_ACTIVE} ) {
 
     for my $template (@templates) {
 
-        # might faile if we try to load something that isn't actually a
+        # might fail if we try to load something that isn't actually a
         # template, and it can't be parsed.  Although that shouldn't happen
         # because we are skipping static files.
         eval { $alloy->load_template($template) };
