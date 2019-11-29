@@ -52,4 +52,4 @@ jobs:
               with:
                   name: "${{ matrix.perl-version }}.${{ matrix.resolver }}"
                   path: cpanfile.snapshot
-              if: success()
+              if: success() && matrix.resolver == 'metacpan'
