@@ -2360,6 +2360,42 @@ DISTRIBUTIONS
       XSLoader 0
       strict 0
       warnings 0
+  Locale-Codes-3.62
+    pathname: S/SB/SBECK/Locale-Codes-3.62.tar.gz
+    provides:
+      Locale::Codes 3.62
+      Locale::Codes::Constants 3.62
+      Locale::Codes::Country 3.62
+      Locale::Codes::Country_Codes 3.62
+      Locale::Codes::Country_Retired 3.62
+      Locale::Codes::Currency 3.62
+      Locale::Codes::Currency_Codes 3.62
+      Locale::Codes::Currency_Retired 3.62
+      Locale::Codes::LangExt 3.62
+      Locale::Codes::LangExt_Codes 3.62
+      Locale::Codes::LangExt_Retired 3.62
+      Locale::Codes::LangFam 3.62
+      Locale::Codes::LangFam_Codes 3.62
+      Locale::Codes::LangFam_Retired 3.62
+      Locale::Codes::LangVar 3.62
+      Locale::Codes::LangVar_Codes 3.62
+      Locale::Codes::LangVar_Retired 3.62
+      Locale::Codes::Language 3.62
+      Locale::Codes::Language_Codes 3.62
+      Locale::Codes::Language_Retired 3.62
+      Locale::Codes::Script 3.62
+      Locale::Codes::Script_Codes 3.62
+      Locale::Codes::Script_Retired 3.62
+      Locale::Country 3.62
+      Locale::Currency 3.62
+      Locale::Language 3.62
+      Locale::Script 3.62
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.30
+      if 0
+      perl 5.006
+      utf8 0
   Log-Any-1.705
     pathname: P/PR/PREACTION/Log-Any-1.705.tar.gz
     provides:
