@@ -50,6 +50,6 @@ jobs:
               if: success()
             - uses: actions/upload-artifact@master
               with:
-                  name: cpanfile.snapshot
+                  name: "${{ matrix.perl-version }}.${{ matrix.resolver }}"
                   path: cpanfile.snapshot
               if: success()
